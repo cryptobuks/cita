@@ -2771,15 +2771,20 @@ transaction <span class="nb">hash</span> 保存到../output/transaction/hash
 </pre></div>
 
 <ul>
+<li>Returns</li>
+</ul>
+<p><code>chainId</code>, u32 - Deal with transaction replay attack
+<code>chainName</code>, String - Chain Name
+<code>operator</code>, String - Chain operator
+<code>genesisTimestamp</code>, Timestamp - Genesis timestamp
+<code>validators</code>, [Address] - Validator array
+<code>blockInterval</code> u64 - block interval by millisecond</p>
+<ul>
 <li>Example</li>
 </ul>
 <div class="highlight"><pre><span></span>$ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;cita_getMetaData&quot;,&quot;params&quot;:[&quot;0xff&quot;],&quot;id&quot;:1}&#39;</span> <span class="m">127</span>.0.0.1:1337
 
 <span class="o">{</span><span class="s2">&quot;jsonrpc&quot;</span>:<span class="s2">&quot;2.0&quot;</span>,<span class="s2">&quot;id&quot;</span>:1,<span class="s2">&quot;result&quot;</span>:<span class="o">{</span><span class="s2">&quot;chainId&quot;</span>:464896313,<span class="s2">&quot;chainName&quot;</span>:<span class="s2">&quot;test-chain&quot;</span>,<span class="s2">&quot;operator&quot;</span>:<span class="s2">&quot;test-operator&quot;</span>,<span class="s2">&quot;website&quot;</span>:<span class="s2">&quot;https://www.example.com&quot;</span>,<span class="s2">&quot;genesisTimestamp&quot;</span>:1525313122,<span class="s2">&quot;validators&quot;</span>:<span class="o">[</span><span class="s2">&quot;0x1c82af8ac82348748c14970296386cf466271bed&quot;</span>,<span class="s2">&quot;0xd3e9c874eb92663337db36f570bca4c0167312be&quot;</span>,<span class="s2">&quot;0x56075c47c33ebac18a8f8be0c3cbaf66328027ac&quot;</span>,<span class="s2">&quot;0xbd5e28047ac06f31fe27cc3ab6ce014cfa05ced3&quot;</span><span class="o">]</span>,<span class="s2">&quot;blockInterval&quot;</span>:3000<span class="o">}}</span>
-
-$ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;cita_getMetaData&quot;,&quot;params&quot;:[&quot;latest&quot;],&quot;id&quot;:1}&#39;</span> <span class="m">127</span>.0.0.1:1337
-
-<span class="o">{</span><span class="s2">&quot;jsonrpc&quot;</span>:<span class="s2">&quot;2.0&quot;</span>,<span class="s2">&quot;id&quot;</span>:1,<span class="s2">&quot;result&quot;</span>:<span class="o">{</span><span class="s2">&quot;chainId&quot;</span>:464896313,<span class="s2">&quot;chainName&quot;</span>:<span class="s2">&quot;test-chain&quot;</span>,<span class="s2">&quot;operator&quot;</span>:<span class="s2">&quot;test-operator&quot;</span>,<span class="s2">&quot;website&quot;</span>:<span class="s2">&quot;https://www.example.com&quot;</span>,<span class="s2">&quot;genesisTimestamp&quot;</span>:1525313122,<span class="s2">&quot;validators&quot;</span>:<span class="o">[</span><span class="s2">&quot;0x1c82af8ac82348748c14970296386cf466271bed&quot;</span>,<span class="s2">&quot;0xd3e9c874eb92663337db36f570bca4c0167312be&quot;</span>,<span class="s2">&quot;0x56075c47c33ebac18a8f8be0c3cbaf66328027ac&quot;</span>,<span class="s2">&quot;0xbd5e28047ac06f31fe27cc3ab6ce014cfa05ced3&quot;</span>,<span class="s2">&quot;0xa5a73a76963b671e0d0044576c910aefdae5b6f0&quot;</span><span class="o">]</span>,<span class="s2">&quot;blockInterval&quot;</span>:3000<span class="o">}}</span>
 </pre></div>
 
 <hr />
