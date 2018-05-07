@@ -570,6 +570,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#eth_getbalance" title="eth_getBalance" class="md-nav__link">
+    eth_getBalance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#eth_newfilter" title="eth_newFilter" class="md-nav__link">
     eth_newFilter
   </a>
@@ -634,6 +641,13 @@
           <li class="md-nav__item">
   <a href="#cita_gettransactionproof" title="cita_getTransactionProof" class="md-nav__link">
     cita_getTransactionProof
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cita_getmetadata" title="cita_getMetaData" class="md-nav__link">
+    cita_getMetaData
   </a>
   
 </li>
@@ -1632,6 +1646,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#eth_getbalance" title="eth_getBalance" class="md-nav__link">
+    eth_getBalance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#eth_newfilter" title="eth_newFilter" class="md-nav__link">
     eth_newFilter
   </a>
@@ -1696,6 +1717,13 @@
           <li class="md-nav__item">
   <a href="#cita_gettransactionproof" title="cita_getTransactionProof" class="md-nav__link">
     cita_getTransactionProof
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cita_getmetadata" title="cita_getMetaData" class="md-nav__link">
+    cita_getMetaData
   </a>
   
 </li>
@@ -1778,12 +1806,14 @@
 <li>eth_getTransactionCount</li>
 <li>eth_getCode</li>
 <li>eth_getAbi</li>
+<li>eth_getBalance</li>
 <li>eth_newFilter</li>
 <li>eth_newBlockFilter</li>
 <li>eth_uninstallFilter</li>
 <li>eth_getFilterChanges</li>
 <li>eth_getFilterLogs</li>
 <li>cita_getTransactionProof</li>
+<li>cita_getMetaData</li>
 </ul>
 <hr />
 <h3 id="net_peercount">net_peerCount<a class="headerlink" href="#net_peercount" title="Permanent link">&para;</a></h3>
@@ -2459,6 +2489,37 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 </pre></div>
 
 <hr />
+<h3 id="eth_getbalance">eth_getBalance<a class="headerlink" href="#eth_getbalance" title="Permanent link">&para;</a></h3>
+<p>获取合约余额。</p>
+<ul>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p><code>DATA</code>, 20 Bytes - address.</p>
+</li>
+<li>
+<p><code>QUANTITY|TAG</code> - integer block number(Hex string), or the string "latest", "earliest"</p>
+</li>
+<li>
+<p>Returns</p>
+</li>
+</ul>
+<p><code>DATA</code> - the balance from the given address.</p>
+<ul>
+<li>Example</li>
+</ul>
+<div class="highlight"><pre><span></span>curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_getBalance&quot;,&quot;params&quot;:[&quot;ea4f6bc98b456ef085da5c424db710489848cab5&quot;, &quot;0x1F&quot;],&quot;id&quot;:1}&#39;</span>
+
+// Result:
+<span class="o">{</span>
+  <span class="s2">&quot;jsonrpc&quot;</span>: <span class="s2">&quot;2.0&quot;</span>,
+  <span class="s2">&quot;id&quot;</span>: <span class="m">1</span>,
+  <span class="s2">&quot;result&quot;</span>: <span class="s2">&quot;0x0&quot;</span>
+<span class="o">}</span>
+</pre></div>
+
+<hr />
 <h3 id="eth_newfilter">eth_newFilter<a class="headerlink" href="#eth_newfilter" title="Permanent link">&para;</a></h3>
 <p>Creates a filter object, based on filter options, to notify when the state changes (logs). To check if the state has changed, call eth_getFilterChanges.</p>
 <ul>
@@ -2695,6 +2756,30 @@ transaction <span class="nb">hash</span> 保存到../output/transaction/hash
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="s2">&quot;0xf9070df903f2a09a9102d68052de36b825d5b1f4dc9512684a8b1a61add6337e455ef69eb304e7a044d0da81e6ebd0928c084692e5aacb6f0e56dbd0a064c9639adb7ef9f6fd3b41a037f1261203d7b81a5a5cfc4a5c4abf15297555a47fd8686580d5a211876516c4a02c533219294c9fce960e0749b017a3ce281eb45facaa138123240336fef8327db90100000000000000000000000000000000000000000000000000000000000000000000000000000800000000000000000000000400000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000005b88ffffffffffffffff826d7b86016242114b6f80b902530ace0442000000000000003078306139383765623937646438323539626433623063386665303832303333333762336631386536613161653735613035636261383032336135346563303564355a00000000000000000000000000000004000000000000002a000000000000003078316666333830313730633765633338613831643731636663636433343765653033386464646237304100000000000000cf81312f4118a72b53f35ecd99817cb499597f1ff7132df672e58cbb615180e8535eebe2040d6303b50c55cbe01d01de49512b6dbffc363dd950a4a919b9693b002a000000000000003078383665373133326164326535323433326466323537633630373638373962626334393962343365624100000000000000f75f5b766676560d6e1a116c29ac6176070c5448c453dc68202b4ac7d388c3cc0edf07d2e0c171710c6ec30735d06590b7fa8e3c094a9275df1bfddf026f1a94002a000000000000003078373661393566333633313532666133353338623530366362636539333764343138613164643131644100000000000000cba1c56842458c11245ba64b0fc3f93dc90682b12407623634433a6a22a741af356a2df0603ab6d300b7c8638db7c56761a716d4948da10be177b36193c058e7012a0000000000000030783362313836653138643263353530383661343230323338373239613238303761393364366163633941000000000000000727955db4413d3c7f476d94d7570ae6d6ed4177fff682fde08ee21b1e46e47073d39d22218b55bb56e1e620fb4a5f17c998d9b80892a27fd73d947756483085001002f901e5826d7bb9010000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000040000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000f8dbf8d99473552bc4e960a1d53013b40074569ea05b950b4de1a002d96cafa1b66d774136b3051a7a5675d5cb23a055bfe1410019ec924f4f93acb8a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000073552bc4e960a1d53013b40074569ea05b950b4d00000000000000000000000000000000000000000000000000000000ec90a79a0000000000000000000000000000000000000000000000000000000000000000c001c0f9012c31808398967f9473552bc4e960a1d53013b40074569ea05b950b4d80b8644c6e5926000000000000000000000000000000000000000000000000000000000000000000000000000000000000000073552bc4e960a1d53013b40074569ea05b950b4d000000000000000000000000000000000000000000000000000000000000000281aeb84182e91042d0201d5f3c8def6f7b09a46a02c6d4a9890e878406498f47fc78719a6d86ee0cfb7bba33228649790c7340ea975dbe59b7fd6a0f267de972b1008dbf0180a037f1261203d7b81a5a5cfc4a5c4abf15297555a47fd8686580d5a211876516c4b840c7561cde2792e85c76bf423cf9c339bd085f6ca686e2fe5cb5092c6bff210786790cac0bf6472e6837282bef5e19416e791f5dbf6abbb33e04e4b291d6ef4e1b80&quot;</span>
 <span class="p">}</span>
+</pre></div>
+
+<hr />
+<h3 id="cita_getmetadata">cita_getMetaData<a class="headerlink" href="#cita_getmetadata" title="Permanent link">&para;</a></h3>
+<p>根据高度查询链上元数据。</p>
+<ul>
+<li>Parameters</li>
+</ul>
+<p><code>QUANTITY</code>, integer of a block height or "latest"</p>
+<div class="highlight"><pre><span></span><span class="n">params</span><span class="p">:</span> <span class="p">[</span>
+   <span class="s2">&quot;0x1da3&quot;</span>
+<span class="p">]</span>
+</pre></div>
+
+<ul>
+<li>Example</li>
+</ul>
+<div class="highlight"><pre><span></span>$ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;cita_getMetaData&quot;,&quot;params&quot;:[&quot;0xff&quot;],&quot;id&quot;:1}&#39;</span> <span class="m">127</span>.0.0.1:1337
+
+<span class="o">{</span><span class="s2">&quot;jsonrpc&quot;</span>:<span class="s2">&quot;2.0&quot;</span>,<span class="s2">&quot;id&quot;</span>:1,<span class="s2">&quot;result&quot;</span>:<span class="o">{</span><span class="s2">&quot;chainId&quot;</span>:464896313,<span class="s2">&quot;chainName&quot;</span>:<span class="s2">&quot;test-chain&quot;</span>,<span class="s2">&quot;operator&quot;</span>:<span class="s2">&quot;test-operator&quot;</span>,<span class="s2">&quot;website&quot;</span>:<span class="s2">&quot;https://www.example.com&quot;</span>,<span class="s2">&quot;genesisTimestamp&quot;</span>:1525313122,<span class="s2">&quot;validators&quot;</span>:<span class="o">[</span><span class="s2">&quot;0x1c82af8ac82348748c14970296386cf466271bed&quot;</span>,<span class="s2">&quot;0xd3e9c874eb92663337db36f570bca4c0167312be&quot;</span>,<span class="s2">&quot;0x56075c47c33ebac18a8f8be0c3cbaf66328027ac&quot;</span>,<span class="s2">&quot;0xbd5e28047ac06f31fe27cc3ab6ce014cfa05ced3&quot;</span><span class="o">]</span>,<span class="s2">&quot;blockInterval&quot;</span>:3000<span class="o">}}</span>
+
+$ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;cita_getMetaData&quot;,&quot;params&quot;:[&quot;latest&quot;],&quot;id&quot;:1}&#39;</span> <span class="m">127</span>.0.0.1:1337
+
+<span class="o">{</span><span class="s2">&quot;jsonrpc&quot;</span>:<span class="s2">&quot;2.0&quot;</span>,<span class="s2">&quot;id&quot;</span>:1,<span class="s2">&quot;result&quot;</span>:<span class="o">{</span><span class="s2">&quot;chainId&quot;</span>:464896313,<span class="s2">&quot;chainName&quot;</span>:<span class="s2">&quot;test-chain&quot;</span>,<span class="s2">&quot;operator&quot;</span>:<span class="s2">&quot;test-operator&quot;</span>,<span class="s2">&quot;website&quot;</span>:<span class="s2">&quot;https://www.example.com&quot;</span>,<span class="s2">&quot;genesisTimestamp&quot;</span>:1525313122,<span class="s2">&quot;validators&quot;</span>:<span class="o">[</span><span class="s2">&quot;0x1c82af8ac82348748c14970296386cf466271bed&quot;</span>,<span class="s2">&quot;0xd3e9c874eb92663337db36f570bca4c0167312be&quot;</span>,<span class="s2">&quot;0x56075c47c33ebac18a8f8be0c3cbaf66328027ac&quot;</span>,<span class="s2">&quot;0xbd5e28047ac06f31fe27cc3ab6ce014cfa05ced3&quot;</span>,<span class="s2">&quot;0xa5a73a76963b671e0d0044576c910aefdae5b6f0&quot;</span><span class="o">]</span>,<span class="s2">&quot;blockInterval&quot;</span>:3000<span class="o">}}</span>
 </pre></div>
 
 <hr />

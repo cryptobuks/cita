@@ -1519,9 +1519,15 @@ option:
     <span class="p">],</span>
     <span class="nt">&quot;0x00000000000000000000000000000000013241a3&quot;</span><span class="p">:</span> <span class="s2">&quot;0xd3f1a71d1d8f073f4e725f57bbe14d67da22f888&quot;</span><span class="p">,</span>
     <span class="nt">&quot;0x0000000000000000000000000000000031415926&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="mi">1</span><span class="p">,</span>
-        <span class="kc">false</span><span class="p">,</span>
-        <span class="kc">false</span>
+        <span class="mi">1</span><span class="p">,</span> <span class="err">//</span> <span class="err">系统合约生效需要的块数</span>
+        <span class="kc">false</span><span class="p">,</span> <span class="err">//</span> <span class="err">权限检查的开关</span>
+        <span class="kc">false</span><span class="p">,</span> <span class="err">//</span> <span class="err">配额检查开关</span>
+        <span class="s2">&quot;test-chain&quot;</span><span class="p">,</span> <span class="err">//</span> <span class="err">chain</span> <span class="err">name</span>
+        <span class="mi">0</span><span class="p">,</span> <span class="err">//</span> <span class="err">chain</span> <span class="err">id</span>
+        <span class="s2">&quot;test-operator&quot;</span><span class="p">,</span> <span class="err">//</span> <span class="err">chain</span> <span class="err">operator</span>
+        <span class="s2">&quot;https://www.example.com&quot;</span><span class="p">,</span> <span class="err">//</span> <span class="err">website</span>
+        <span class="mi">3000</span><span class="p">,</span> <span class="err">//</span> <span class="err">block</span> <span class="err">interval</span>
+        <span class="mi">0</span> <span class="err">//</span> <span class="err">交易收费模式，</span><span class="mi">0</span><span class="err">代表配额模式，</span><span class="mi">1</span><span class="err">代表使用Gas计费</span>
     <span class="p">],</span>
     <span class="nt">&quot;0x00000000000000000000000000000000013241b4&quot;</span><span class="p">:</span> <span class="s2">&quot;0x9dcd6b234e2772c5451fd4ccf7582f4283140697&quot;</span><span class="p">,</span>
     <span class="nt">&quot;0x00000000000000000000000000000000013241b5&quot;</span><span class="p">:</span> <span class="p">{},</span>
@@ -1543,7 +1549,7 @@ option:
                                                 其为管理员地址，可由此地址进行共识节点的增删。 <strong><em>须保存好对应的私钥</em></strong></li>
 <li><code>0x00000000000000000000000000000000013241a3</code>: 代表配额管理系统合约地址，用户可修改<code>0xd3f1a71d1d8f073f4e725f57bbe14d67da22f888</code>值为自己生成的地址，其为配额管理的管理员地址，
                                                 可由此地址进行配额的管理。 <strong><em>须保存好对应的私钥</em></strong></li>
-<li><code>0x0000000000000000000000000000000031415926</code>: 代表只读配置合约，三个参数分别代表系统合约生效需要的块数，默认为1代表下一个块生效；权限检查的开关，默认关闭；配额检查开关，默认为关闭。</li>
+<li><code>0x0000000000000000000000000000000031415926</code>: 代表配置合约SysConfig。</li>
 <li><code>0x00000000000000000000000000000000013241b4</code>: 代表CITA权限管理合约地址，用户可修改<code>0x9dcd6b234e2772c5451fd4ccf7582f4283140697</code>值为自己生成的地址，其为超级管理员地址，
                                                 此地址拥有权限管理本身的所有权限。 <strong><em>须保存好对应的私钥</em></strong></li>
 <li><code>0x00000000000000000000000000000000013241b5</code>: 代表权限合约地址，其中的多个地址分别代表系统内置的权限类型。</li>
