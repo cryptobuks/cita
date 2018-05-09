@@ -1871,9 +1871,9 @@
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>DATA</code>, The signed transaction data.</p>
+<ol>
+<li><code>DATA</code>, The signed transaction data.</li>
+</ol>
 </li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">signed_data</span> <span class="o">=</span> <span class="s2">&quot;0a9b0412013018fface20420f73b2a8d046060604052341561000f57600080fd5b5b60646000819055507f8fb1356be6b2a4e49ee94447eb9dcb8783f51c41dcddfe7919f945017d163bf3336064604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a15b5b610178806100956000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806360fe47b1146100495780636d4ce63c1461006c575b600080fd5b341561005457600080fd5b61006a6004808035906020019091905050610095565b005b341561007757600080fd5b61007f610142565b6040518082815260200191505060405180910390f35b7fc6d8c0af6d21f291e7c359603aa97e0ed500f04db6e983b9fce75a91c6b8da6b816040518082815260200191505060405180910390a1806000819055507ffd28ec3ec2555238d8ad6f9faf3e4cd10e574ce7e7ef28b73caa53f9512f65b93382604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a15b50565b6000805490505b905600a165627a7a72305820631927ec00e7a86b68950c2304ba2614a8dcb84780b339fc2bfe442bba418ce800291241884bfdfd8e417ab286fd761d42b71a9544071d91084c56f9063471ce82e266122a8f9a24614e1cf75070eea301bf1e7a65857def86093b6892e09ae7d0bcdff901&quot;</span>
@@ -2031,24 +2031,26 @@ unverify_tx.crypto <span class="o">=</span> SECP<span class="p">;</span>
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p>DATA, 32 Bytes - Hash of a block.</p>
-</li>
+<ol>
+<li>DATA, 32 Bytes - Hash of a block.</li>
 <li>Boolean - 是否返回交易信息(True: 返回详细交易列表| False: 只返回交易hash).</li>
-</ul>
+</ol>
 <div class="highlight"><pre><span></span>params: <span class="o">[</span>
-   <span class="s1">&#39;0x296474ecb4c2c8c92b0ba7800a01530b70a6f2b6e76e5c2ed2f89356429ef329&#39;</span>,
-   <span class="nb">true</span>
+    <span class="s1">&#39;0x296474ecb4c2c8c92b0ba7800a01530b70a6f2b6e76e5c2ed2f89356429ef329&#39;</span>,
+    <span class="nb">true</span>
 <span class="o">]</span>
 </pre></div>
 
-<ul>
-<li>Returns</li>
-</ul>
-<p>Object - A block object, or null when no block was found:</p>
-<ul>
-<li>Example</li>
+</li>
+<li>
+<p>Returns</p>
+<ol>
+<li>Object - A block object, or null when no block was found:</li>
+</ol>
+</li>
+<li>
+<p>Example</p>
+</li>
 </ul>
 <div class="highlight"><pre><span></span>// Request
 curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;cita_getBlockByHash&quot;,&quot;params&quot;:[&quot;0x296474ecb4c2c8c92b0ba7800a01530b70a6f2b6e76e5c2ed2f89356429ef329&quot;, true],&quot;id&quot;:1}&#39;</span>
@@ -2099,11 +2101,11 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>QUANTITY</code> - integer of a block height.</p>
-</li>
+<ol>
+<li><code>QUANTITY</code> - integer of a block height.</li>
 <li><code>Boolean</code> - 是否返回交易信息(True: 返回详细交易列表| False: 只返回交易hash).</li>
+</ol>
+</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="nx">params</span><span class="o">:</span> <span class="p">[</span>
    <span class="mh">0x1da3</span><span class="p">,</span>
@@ -2138,19 +2140,17 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>DATA</code>, 32 Bytes - hash of a transaction</p>
-</li>
-</ul>
+<ol>
+<li><code>DATA</code>, 32 Bytes - hash of a transaction</li>
+</ol>
 <div class="highlight"><pre><span></span><span class="nx">params</span><span class="o">:</span> <span class="p">[</span>
-   <span class="s2">&quot;b38e5b6572b2613cab8088f93e6835576209f2b796104779b4a43fa5adc737af&quot;</span>
+    <span class="s2">&quot;b38e5b6572b2613cab8088f93e6835576209f2b796104779b4a43fa5adc737af&quot;</span>
 <span class="p">]</span>
 </pre></div>
 
-<ul>
-<li>Returns</li>
-</ul>
+</li>
+<li>
+<p>Returns</p>
 <p>Object - A receipt object:</p>
 <ul>
 <li>transactionHash: DATA, 32 Bytes - hash of the transaction.</li>
@@ -2179,8 +2179,8 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 <li>EVM internal error.</li>
 <li>Mutable call in static context.</li>
 <li>Out of bounds.</li>
-<li>
-<p>Reverted.</p>
+<li>Reverted.</li>
+</ul>
 </li>
 <li>
 <p>Example</p>
@@ -2253,15 +2253,15 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 </li>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>Object</code> - The filter object:</p>
-</li>
+<ol>
+<li><code>Object</code> - The filter object:<ul>
 <li><code>fromBlock</code>: <code>QUANTITY|TAG</code> - (optional, default: <code>&quot;latest&quot;</code>) Integer block number(Hex string), or <code>&quot;latest&quot;</code> or <code>&quot;earliest&quot;</code>.</li>
 <li><code>toBlock</code>: <code>QUANTITY|TAG</code> - (optional, default: <code>&quot;latest&quot;</code>) Integer block number(Hex string), or <code>&quot;latest&quot;</code> or <code>&quot;earliest&quot;</code>.</li>
 <li><code>address</code>: <code>DATA|Array</code>, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.</li>
-<li>
-<p><code>topics</code>: <code>Array of DATA</code>,  - (optional) Array of 32 Bytes <code>DATA</code> topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.</p>
+<li><code>topics</code>: <code>Array of DATA</code>,  - (optional) Array of 32 Bytes <code>DATA</code> topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.</li>
+</ul>
+</li>
+</ol>
 </li>
 <li>
 <p>Returns</p>
@@ -2302,10 +2302,8 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p>Object - The transaction call object</p>
-<ul>
+<ol>
+<li>Object - The transaction call object<ul>
 <li>from: DATA, 20 Bytes - (optional) The address the transaction is sent from.</li>
 <li>to:   DATA, 20 Bytes - The address the transaction is directed to.</li>
 <li>data: DATA - (optional) Hash of the method signature and encoded parameters. For details see <a href="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI">Ethereum Contract ABI</a></li>
@@ -2316,6 +2314,8 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 <li>String "earliest" for the earliest/genesis block</li>
 <li>String "latest" - for the latest mined block</li>
 </ul>
+</li>
+</ol>
 </li>
 </ul>
 <div class="highlight"><pre><span></span><span class="nx">params</span><span class="o">:</span> <span class="p">[{</span><span class="s2">&quot;from&quot;</span><span class="o">:</span><span class="s2">&quot;0xca35b7d915458ef540ade6068dfe2f44e8fa733c&quot;</span><span class="p">,</span><span class="s2">&quot;to&quot;</span><span class="o">:</span><span class="s2">&quot;0xea4f6bc98b456ef085da5c424db710489848cab5&quot;</span><span class="p">,</span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="s2">&quot;0x6d4ce63c&quot;</span><span class="p">},</span> <span class="s2">&quot;0x1d23&quot;</span><span class="p">]</span>
@@ -2352,27 +2352,25 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>DATA</code>, 32 Bytes - hash of a transaction</p>
-</li>
-</ul>
+<ol>
+<li><code>DATA</code>, 32 Bytes - hash of a transaction</li>
+</ol>
 <div class="highlight"><pre><span></span><span class="nx">params</span><span class="o">:</span> <span class="p">[</span>
-   <span class="s2">&quot;0x019abfa50cbb6df5b6dc41eabba47db4e7eb1787a96fd5836820d581287e0236&quot;</span>
+    <span class="s2">&quot;0x019abfa50cbb6df5b6dc41eabba47db4e7eb1787a96fd5836820d581287e0236&quot;</span>
 <span class="p">]</span>
 </pre></div>
 
-<ul>
-<li>Returns</li>
-</ul>
+</li>
+<li>
+<p>Returns</p>
 <p>Object - A transaction object, or null when no transaction was found:</p>
 <ul>
 <li>hash: DATA, 32 Bytes - hash of the transaction.</li>
 <li>content: DATA, 交易内容.</li>
 <li>blockHash: DATA, 32 Bytes - hash of the block where this transaction was in. null when its not in block.</li>
 <li>blockNumber: QUANTITY - block number where this transaction was in. null when its not in block.</li>
-<li>
-<p>index: QUANTITY - integer of the transactions index position in the block. null when its not in block.</p>
+<li>index: QUANTITY - integer of the transactions index position in the block. null when its not in block.</li>
+</ul>
 </li>
 <li>
 <p>Example</p>
@@ -2401,12 +2399,10 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>DATA</code>, 20 Bytes - address.</p>
-</li>
-<li>
-<p><code>QUANTITY|TAG</code> - integer block number(Hex string), or the string "latest", "earliest"</p>
+<ol>
+<li><code>DATA</code>, 20 Bytes - address.</li>
+<li><code>QUANTITY|TAG</code> - integer block number(Hex string), or the string "latest", "earliest"</li>
+</ol>
 </li>
 <li>
 <p>Returns</p>
@@ -2432,12 +2428,10 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>DATA</code>, 20 Bytes - address.</p>
-</li>
-<li>
-<p><code>QUANTITY|TAG</code> - integer block number(Hex string), or the string "latest", "earliest"</p>
+<ol>
+<li><code>DATA</code>, 20 Bytes - address.</li>
+<li><code>QUANTITY|TAG</code> - integer block number(Hex string), or the string "latest", "earliest"</li>
+</ol>
 </li>
 <li>
 <p>Returns</p>
@@ -2463,12 +2457,10 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>DATA</code>, 20 Bytes - address.</p>
-</li>
-<li>
-<p><code>QUANTITY|TAG</code> - integer block number(Hex string), or the string "latest", "earliest"</p>
+<ol>
+<li><code>DATA</code>, 20 Bytes - address.</li>
+<li><code>QUANTITY|TAG</code> - integer block number(Hex string), or the string "latest", "earliest"</li>
+</ol>
 </li>
 <li>
 <p>Returns</p>
@@ -2494,12 +2486,10 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>DATA</code>, 20 Bytes - address.</p>
-</li>
-<li>
-<p><code>QUANTITY|TAG</code> - integer block number(Hex string), or the string "latest", "earliest"</p>
+<ol>
+<li><code>DATA</code>, 20 Bytes - address.</li>
+<li><code>QUANTITY|TAG</code> - integer block number(Hex string), or the string "latest", "earliest"</li>
+</ol>
 </li>
 <li>
 <p>Returns</p>
@@ -2525,9 +2515,9 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>Object</code> - The filter object, see <a href="#eth_getLogs">eth_getLogs</a></p>
+<ol>
+<li><code>Object</code> - The filter object, see <a href="#eth_getLogs">eth_getLogs</a></li>
+</ol>
 </li>
 <li>
 <p>Returns</p>
@@ -2578,9 +2568,9 @@ Additonally Filters timeout when they aren't requested with eth_getFilterChanges
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>QUANTITY</code> - The filter id.</p>
+<ol>
+<li><code>QUANTITY</code> - The filter id.</li>
+</ol>
 </li>
 <li>
 <p>Returns</p>
@@ -2606,9 +2596,9 @@ Additonally Filters timeout when they aren't requested with eth_getFilterChanges
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>QUANTITY</code> - The filter id.</p>
+<ol>
+<li><code>QUANTITY</code> - The filter id.</li>
+</ol>
 </li>
 <li>
 <p>Returns</p>
@@ -2648,9 +2638,9 @@ Additonally Filters timeout when they aren't requested with eth_getFilterChanges
 <ul>
 <li>
 <p>Parameters</p>
-</li>
-<li>
-<p><code>QUANTITY</code> - The filter id.</p>
+<ol>
+<li><code>QUANTITY</code> - The filter id.</li>
+</ol>
 </li>
 <li>
 <p>Returns</p>
@@ -2732,16 +2722,20 @@ transaction <span class="nb">hash</span> 保存到../output/transaction/hash
 <h3 id="cita_gettransactionproof">cita_getTransactionProof<a class="headerlink" href="#cita_gettransactionproof" title="Permanent link">&para;</a></h3>
 <p>根据交易hash获取交易执行的证明。</p>
 <ul>
-<li>Parameters</li>
-</ul>
-<p><code>DATA</code>, 32 Bytes - hash of a transaction</p>
+<li>
+<p>Parameters</p>
+<ol>
+<li><code>DATA</code>, 32 Bytes - hash of a transaction</li>
+</ol>
 <div class="highlight"><pre><span></span><span class="nx">params</span><span class="o">:</span> <span class="p">[</span>
-   <span class="s2">&quot;0x37f1261203d7b81a5a5cfc4a5c4abf15297555a47fd8686580d5a211876516c4&quot;</span>
+    <span class="s2">&quot;0x37f1261203d7b81a5a5cfc4a5c4abf15297555a47fd8686580d5a211876516c4&quot;</span>
 <span class="p">]</span>
 </pre></div>
 
-<ul>
-<li>Returns</li>
+</li>
+<li>
+<p>Returns</p>
+</li>
 </ul>
 <p><code>DATA</code> - A proof include transaction, receipt, receipt merkle tree proof, block header. There will be a tool to verify the proof and extract some info.</p>
 <ul>
@@ -2762,24 +2756,28 @@ transaction <span class="nb">hash</span> 保存到../output/transaction/hash
 <h3 id="cita_getmetadata">cita_getMetaData<a class="headerlink" href="#cita_getmetadata" title="Permanent link">&para;</a></h3>
 <p>根据高度查询链上元数据。</p>
 <ul>
-<li>Parameters</li>
-</ul>
-<p><code>QUANTITY</code>, integer of a block height or "latest"</p>
+<li>
+<p>Parameters</p>
+<ol>
+<li><code>QUANTITY</code>, integer of a block height or "latest"</li>
+</ol>
 <div class="highlight"><pre><span></span><span class="n">params</span><span class="p">:</span> <span class="p">[</span>
-   <span class="s2">&quot;0x1da3&quot;</span>
+    <span class="s2">&quot;0x1da3&quot;</span>
 <span class="p">]</span>
 </pre></div>
 
+</li>
+<li>
+<p>Returns</p>
 <ul>
-<li>Returns</li>
+<li><code>chainId</code>, u32 - Deal with transaction replay attack</li>
+<li><code>chainName</code>, String - Chain Name</li>
+<li><code>operator</code>, String - Chain operator</li>
+<li><code>genesisTimestamp</code>, Timestamp - Genesis timestamp</li>
+<li><code>validators</code>, [Address] - Validator array</li>
+<li><code>blockInterval</code> u64 - block interval by millisecond</li>
 </ul>
-<p><code>chainId</code>, u32 - Deal with transaction replay attack
-<code>chainName</code>, String - Chain Name
-<code>operator</code>, String - Chain operator
-<code>genesisTimestamp</code>, Timestamp - Genesis timestamp
-<code>validators</code>, [Address] - Validator array
-<code>blockInterval</code> u64 - block interval by millisecond</p>
-<ul>
+</li>
 <li>Example</li>
 </ul>
 <div class="highlight"><pre><span></span>$ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;cita_getMetaData&quot;,&quot;params&quot;:[&quot;0xff&quot;],&quot;id&quot;:1}&#39;</span> <span class="m">127</span>.0.0.1:1337
