@@ -1423,11 +1423,11 @@
 <p>通过本文所述方法和项目中的脚本，我们可以快速的搭建<code>CITA</code>环境，进行智能合约的开发测试。</p>
 <h2 id="cita">部署CITA<a class="headerlink" href="#cita" title="Permanent link">&para;</a></h2>
 <p>为了简化<code>CITA</code>的部署，帮助用户快速搭建<code>CITA</code>运行环境，我们推荐使用<code>docker</code>部署 <code>CITA</code>。</p>
-<p>具体步骤请参见<a href="https://cryptape.github.io/cita/getting_started/">快速入门</a></p>
+<p>具体步骤请参见<a href="https://cryptape.github.io/cita/zh/getting_started/">快速入门</a></p>
 <p>在发布件目录启动所有的<code>CITA</code>节点后，直接运行<code>./env.sh</code>获取一个docker环境的shell。</p>
 <p>后续命令都在这个shell中执行。</p>
 <h2 id="_1">部署智能合约<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>CITA完全兼容以太坊的智能合约，<code>solidity</code>是智能合约最为推荐的语言，因此我们也采用<code>solidity</code>语言来编写和测试智能合约。</p>
+<p>CITA完全兼容以太坊的智能合约，<code>solidity</code>是基于以太坊的智能合约最为推荐的编程语言，因此我们也采用<code>solidity</code>语言来编写和测试智能合约。</p>
 <h3 id="_2">编译<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>智能合约的源码文件，需要先使用solidity编译器<code>solc</code>编译成字节码。</p>
 <p>我们提供的docker环境中已经包含了<code>solc</code>。在shell中执行<code>solc --version</code>查看版本信息：</p>
@@ -1450,8 +1450,10 @@ Binary:
 <h3 id="_3">部署合约<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>得到合约字节码后，就可以将其部署到<code>CITA</code>链上了，部署的方法已经用<code>python</code>脚本封装，只需要传入私钥和字节码即可。</p>
 <p>目前支持的<code>python</code>版本是2.7，<code>python</code>脚本存放的位置为<code>scripts/txtool/txtool</code>，具体安装和使用方法可以参考目录下的<code>README.md</code>文件。</p>
+<p>划重点， txtool在使用上有限制：不能在别的目录通过相对路径调用，一定要cd到scripts/txtool/txtool目录下。</p>
 <p>docker环境已经包含了该工具的依赖，可以直接运行命令部署合约：</p>
-<div class="highlight"><pre><span></span>python make_tx.py --privkey <span class="s2">&quot;352416e1c910e413768c51390dfd791b414212b7b4fe6b1a18f58007fa894214&quot;</span> --code     <span class="s2">&quot;606060405234156100105760006000fd5b610015565b60e0806100236000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806360fe47b114604b5780636d4ce63c14606c576045565b60006000fd5b341560565760006000fd5b606a60048080359060200190919050506093565b005b341560775760006000fd5b607d60a3565b6040518082815260200191505060405180910390f35b8060006000508190909055505b50565b6000600060005054905060b1565b905600a165627a7a72305820942223976c6dd48a3aa1d4749f45ad270915cfacd9c0bf3583c018d4c86f9da20029&quot;</span>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> scripts/txtool/txtool
+python make_tx.py --privkey <span class="s2">&quot;352416e1c910e413768c51390dfd791b414212b7b4fe6b1a18f58007fa894214&quot;</span> --code     <span class="s2">&quot;606060405234156100105760006000fd5b610015565b60e0806100236000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806360fe47b114604b5780636d4ce63c14606c576045565b60006000fd5b341560565760006000fd5b606a60048080359060200190919050506093565b005b341560775760006000fd5b607d60a3565b6040518082815260200191505060405180910390f35b8060006000508190909055505b50565b6000600060005054905060b1565b905600a165627a7a72305820942223976c6dd48a3aa1d4749f45ad270915cfacd9c0bf3583c018d4c86f9da20029&quot;</span>
 </pre></div>
 
 <p>参数解释：<code>code</code>为第一步中获得的字节码, <code>privkey</code>可随意设置。</p>

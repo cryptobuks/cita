@@ -1387,7 +1387,7 @@ Function signatures:
 
 <p>其中 <code>category</code> 只有两种取值，等于 1 时表示创建合约，等于 2 时表示调用合约； <code>ipandport</code> 表示接收该交易的节点 IP 地址和端口； <code>txnum</code> 表示发送的交易个数，该配置是为了以后兼容批量交易而预留的扩展接口； <code>threads</code> 表示执行该交易启动的线程个数；而 <code>code</code> 表示编译合约后生成的字节码，即上述编译合约输出的 <code>Binary</code> 。</p>
 <p>然后使用以下命令创建智能合约：</p>
-<div class="highlight"><pre><span></span>trans_evm --config<span class="o">=</span>config_create.json
+<div class="highlight"><pre><span></span>./bin/trans_evm --config<span class="o">=</span>config_create.json
 </pre></div>
 
 <p>执行成功后，便会经过 CITA 系统的处理，然后返回创建合约交易的执行结果。</p>
@@ -1405,7 +1405,7 @@ Function signatures:
 
 <p>其中需要注意的是 <code>category</code> 等于 2 表示调用合约，而 <code>code</code> 一般是由合约函数名 Hash 和它对应的参数值组成的，如果该函数没有参数，则仅仅使用函数名 Hash 即可。例如上述示例中合约函数名 Hash 即输出 <code>Function signatures</code> 下的 <code>update(uint256)</code> 对应的 Hash 值，占前面 32 比特，其中函数名为 <code>update</code> ，参数类型为 <code>uint256</code>，而参数部分是将参数按位数补齐并序列化，占后面 256 比特。如果函数包含多个参数，每个参数都占 256 比特，且参数按照函数的参数顺序排列。</p>
 <p>然后使用以下命令调用智能合约：</p>
-<div class="highlight"><pre><span></span>trans_evm --config<span class="o">=</span>config_call.json
+<div class="highlight"><pre><span></span>./bin/trans_evm --config<span class="o">=</span>config_call.json
 </pre></div>
 
 <p>执行成功后，便会经过 CITA 系统的处理，然后返回调用合约交易的执行结果。</p>
