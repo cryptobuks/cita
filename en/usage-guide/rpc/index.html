@@ -21,7 +21,7 @@
       
         <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="en, zh">
+        <meta name="lang:search.language" content="zh">
       
         <meta name="lang:search.result.none" content="没有找到符合条件的结果">
       
@@ -1950,7 +1950,7 @@
 
 <h4 id="_3">构造签名<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <ol>
-<li>构造Transaction对象tx，填充to, nonce, valid_until_block, quota, data, verion 6个字段。</li>
+<li>构造Transaction对象tx，填充to, nonce, valid_until_block, quota, data, value, chain_id, version 8个字段。</li>
 <li>tx对象protobuf序列化后 sha3 -&gt; hash</li>
 <li>对 hash 进行签名 -&gt; signature</li>
 <li>构造UnverifiedTransaction, 使用hash, signature, SECP填充UnverifiedTransaction  -&gt; unverify_tx</li>
@@ -2333,17 +2333,15 @@ curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&
 </pre></div>
 
 <p>发送和获取数据</p>
-<div class="highlight"><pre><span></span><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_call&quot;,</span>
-<span class="s1">&quot;params&quot;:[{&quot;from&quot;:&quot;0xca35b7d915458ef540ade6068dfe2f44e8fa733c&quot;,&quot;to&quot;:&quot;0xea4f6bc98b456ef085da5c424db710489848cab5&quot;,</span>
-<span class="s1">&quot;data&quot;:&quot;0x6d4ce63c&quot;}, &quot;0x6&quot;],&quot;id&quot;:2}&#39;</span>
+<div class="highlight"><pre><span></span>// Request
+curl -X POST --data <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_call&quot;,&quot;params&quot;:[{&quot;from&quot;:&quot;0xca35b7d915458ef540ade6068dfe2f44e8fa733c&quot;,&quot;to&quot;:&quot;0xea4f6bc98b456ef085da5c424db710489848cab5&quot;,&quot;data&quot;:&quot;0x6d4ce63c&quot;}, &quot;0x6&quot;],&quot;id&quot;:2}&#39;</span>
 
-<span class="c1">// Result</span>
-<span class="p">{</span>
-  <span class="s2">&quot;jsonrpc&quot;</span><span class="o">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="s2">&quot;0x0000000000000000000000000000000000000000000000000000000000000064&quot;</span>
-<span class="p">}</span>
+// Result
+<span class="o">{</span>
+  <span class="s2">&quot;jsonrpc&quot;</span>: <span class="s2">&quot;2.0&quot;</span>,
+  <span class="s2">&quot;id&quot;</span>: <span class="m">2</span>,
+  <span class="s2">&quot;result&quot;</span>: <span class="s2">&quot;0x0000000000000000000000000000000000000000000000000000000000000064&quot;</span>
+<span class="o">}</span>
 </pre></div>
 
 <hr />
@@ -2895,14 +2893,10 @@ curl -X POST -d <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot
           <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
           
             
-          
-            
               
               <script src="../../../assets/javascripts/lunr/lunr.zh.js"></script>
             
           
-          
-            <script src="../../../assets/javascripts/lunr/lunr.multi.js"></script>
           
         
       
